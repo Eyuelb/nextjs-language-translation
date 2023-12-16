@@ -42,7 +42,7 @@ function LanguageConfigurationLayout() {
   return (
     <aside
       className={`fixed top-0 right-0 z-50 h-screen w-64 px-2.5 shadow-lg transition-transform duration-300 translate-x-0 bg-gray}`}
-      style={{ backdropFilter: "blur(8px)" }}
+      style={{  }}
     >
       <div className="flex flex-col">
         <p>Current Language: {language}</p>

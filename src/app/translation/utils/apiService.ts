@@ -1,10 +1,10 @@
 // apiService.js
 
-const API_BASE_URL = 'http://localhost:3000/api';
+const TRANSLATION_BASE_URL = 'translation';
 
 export const addLanguage = async (language:string) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/language/add`, {
+    const response = await fetch(`${TRANSLATION_BASE_URL}/language/add`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ export const addLanguage = async (language:string) => {
 
 export const addTranslation = async (language:string, translationKey:string, value:string) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/translation/add`, {
+    const response = await fetch(`${TRANSLATION_BASE_URL}/translate/add`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ export const addTranslation = async (language:string, translationKey:string, val
 
 export const getLanguage = async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/language/get`);
+      const response = await fetch(`${TRANSLATION_BASE_URL}/language/get`);
   
       if (response.ok) {
         const result = await response.json();
@@ -63,7 +63,7 @@ export const getLanguage = async () => {
   };
 export const getTranslations = async (language:string) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/translation/get?language=${language}`);
+    const response = await fetch(`${TRANSLATION_BASE_URL}/translate/get?language=${language}`);
 
     if (response.ok) {
       const result = await response.json();
@@ -79,7 +79,7 @@ export const getTranslations = async (language:string) => {
 
 export const updateTranslation = async (language:string, translationKey:string, value:string) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/translation/update`, {
+    const response = await fetch(`${TRANSLATION_BASE_URL}/translate/update`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

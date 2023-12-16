@@ -1,7 +1,12 @@
 import { promises as fs } from "fs";
 import { LanguageContent, TranslationPageType } from "./types";
-import { addLanguageToInfo, existsSyncTranslationFile, updateTranslationByKey } from "./helper";
-export const TRANSLATION_DIR = process.cwd() + "/src/app/translation/";
+import {
+  addLanguageToInfo,
+  existsSyncTranslationFile,
+  updateTranslationByKey,
+} from "./helper";
+export const TRANSLATION_DIR =
+  process.cwd() + "/src/app/translation/language-json/";
 export const infoFilePath = `${TRANSLATION_DIR}info.json`;
 
 export const getLanguage = async (): Promise<LanguageContent | null> => {
@@ -94,7 +99,6 @@ export const addLanguage = async (language: string) => {
   const filePath = `${TRANSLATION_DIR}${language}.json`;
   const newLanguage = await existsSyncTranslationFile(filePath, language);
   const updatedInfo = await addLanguageToInfo(language);
-
 };
 
 export async function existsTranslationInfo(): Promise<LanguageContent | null> {

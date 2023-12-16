@@ -14,7 +14,7 @@ import {
   getTranslations,
   updateTranslation,
 } from "./apiService";
-import LanguageConfigurationLayout from "./layout/language-configuration-layout";
+import LanguageConfigurationLayout from "./_components/language-configuration-layout";
 
 // Define the types for your context
 interface TranslationContextProps {
@@ -46,7 +46,7 @@ const TranslationContext = createContext<TranslationContextProps | undefined>(
 export const TranslationProvider: React.FC<PropsWithChildren> = ({
   children,
 }) => {
-  const [language, setLanguage] = useState<string>("et");
+  const [language, setLanguage] = useState<string>("en");
   const [translations, setTranslations] = useState<Record<string, string>>({});
   const [languageList, setLanguageList] = useState<string[]>([]);
 
@@ -140,4 +140,4 @@ export const useTranslation = (): TranslationContextProps => {
   }
 
   return context;
-};
+}
